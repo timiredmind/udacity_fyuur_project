@@ -1,6 +1,14 @@
 {% extends 'layouts/main.html' %}
 {% block title %}Fyyur | Artists{% endblock %}
 {% block content %}
+<h3>Search By State</h3>
+<form method="post" action="/artists/search_by_city">
+
+	{{ form.city(placeholder='City') }}
+	{{ form.state }}
+	{{ form.submit }}
+</form>
+
 <ul class="items">
 	{% for artist in artists %}
 	<li>

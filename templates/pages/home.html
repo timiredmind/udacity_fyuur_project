@@ -22,4 +22,19 @@
 		<img id="front-splash" src="{{ url_for('static',filename='img/front-splash.jpg') }}" alt="Front Photo of Musical Band" />
 	</div>
 </div>
+<div class="row">
+	<div class="col-sm-6">
+		<h3>Recently Listed Artist</h3>
+		{% for artist in new_artists %}
+		<p><i class="fas fa-users"></i><a href="{{ url_for('show_artist', artist_id=artist.id)}}"> {{artist.name}}</a></p>
+		{% endfor %}
+	</div>
+	<div class="col-sm-6">
+		<h3>Recently Listed Venue</h3>
+		{% for venue in new_venues %}
+		<p><i class="fas fa-music"></i><a href="{{url_for('show_venue', venue_id=venue.id)}}">{{venue.name}}</a></p>
+		{% endfor %}
+	</div>
+
+</div>
 {% endblock %}
