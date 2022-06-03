@@ -238,9 +238,10 @@ def delete_venue(venue_id):
         print(sys.exc_info)
         db.session.rollback()
         flash(f"An error occurred while trying to unlist Venue {venue.id}")
-    finally:
+    else:
         flash(f"You have successfully unlisted Venue {venue.id}")
-        db.session.commit()
+    finally:
+        db.session.close()
 
     # BONUS CHALLENGE: Implement a button to delete a Venue on a Venue Page, have it so that
     # clicking that button delete it from the db then redirect the user to the

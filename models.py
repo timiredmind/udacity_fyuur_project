@@ -17,7 +17,7 @@ class Venue(db.Model):
     website_link = db.Column(db.String(120))
     seeking_talent = db.Column(db.Boolean)
     seeking_description = db.Column(db.String)
-    shows = db.relationship("Show", backref="venue", lazy=True)
+    shows = db.relationship("Show", backref="venue", lazy=True, cascade="all, delete-orphan")
     genres = db.relationship("Genre", secondary="venue_genre", lazy="subquery",
                              backref=db.backref('venues', lazy=True))
 
